@@ -30,6 +30,16 @@ describe BankTest do
   it "stores the date the transaction was made" do
     bank = BankTest.new
     bank.deposit(2)
-    expect(bank.statement).to eq "20/05/2022 || 2.00 || 2.00"
+    expect(bank.statement).to eq "20/05/2022 || 2.0 ||   || 2.0"
+  end
+  it "prints the statement with credit" do
+    bank = BankTest.new
+    bank.deposit(5)
+    expect(bank.statement).to eq "20/05/2022 || 5.0 ||   || 5.0"
+  end
+  it "prints the statement with debit" do
+    bank = BankTest.new
+    bank.withdraw(2)
+    expect(bank.statement).to eq "20/05/2022 ||  || -2.0 || -2.0"
   end
 end

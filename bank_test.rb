@@ -6,7 +6,7 @@ class BankTest
   def deposit(money)
     deposit = @current_balance += money
     deposit_date = Time.now.strftime("%d/%m/%Y")
-    @statement.push({"date": deposit_date, "credit": deposit})
+    @statement.push({"date": deposit_date, "credit": deposit.to_f, "debit": " "})
   end
   def balance
     @current_balance
@@ -14,13 +14,12 @@ class BankTest
   def withdraw(money)
     withdraw = @current_balance -= money
     withdrawal_date = Time.now.strftime("%d/%m/%Y")
-    @statement.push({"date": withdrawal_date, "debit": withdraw})
+    @statement.push({"date": withdrawal_date, "credit": "", "debit": withdraw.to_f})
   end
   def statement
-    @statement.each do |transaction|
-        return "#{transaction[:date]} || #{transaction[:credit]}.00 || #{@current_balance}.00"
-      # transaction.map { |key, value| return "#{value}" }
+    puts "date || credit || debit || balance"
+     @statement.each do |transaction|
+      return "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{@current_balance.to_f}"
     end
   end
-
 end
