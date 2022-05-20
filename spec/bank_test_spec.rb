@@ -27,4 +27,9 @@ describe BankTest do
     bank.withdraw(1)
     expect(bank.balance).to eq 1
   end
+  it "stores the date the transaction was made" do
+    bank = BankTest.new
+    bank.deposit(2)
+    expect(bank.statement).to eq "20/05/2022 || 2.00 || 2.00"
+  end
 end
