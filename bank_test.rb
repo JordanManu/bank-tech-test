@@ -1,16 +1,15 @@
 class BankTest
   def initialize
-    @current_balance = []
-    @withdrawals = []
+    @current_balance = 0
   end
   def deposit(money)
-    @current_balance << money
+    @current_balance += money
   end
   def balance
-    return @current_balance.sum - @withdrawals.sum
+    @current_balance
   end
   def withdraw(money)
-    @withdrawals << money
+    @current_balance -= money
   end
 
 end
