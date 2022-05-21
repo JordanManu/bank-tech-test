@@ -1,25 +1,26 @@
 class BankTest
   def initialize
-    @current_balance = 0
+    @current_balance = 0.00
     @statement = []
-  end
-  def deposit(money)
-    deposit = @current_balance += money
-    deposit_date = Time.now.strftime("%d/%m/%Y")
-    @statement.push({"date": deposit_date, "credit": deposit.to_f, "debit": " "})
   end
   def balance
     @current_balance
   end
+  def deposit(money)
+    deposit = @current_balance += money
+    transaction_details(Time.now.strftime("%d/%m/%Y"), money, "")
+  end
+  def transaction_details(date, credit, debit)
+    @statement.unshift({"date": date, "credit": credit.to_f, "debit": debit.to_f, "balance": @current_balance})
+  end
   def withdraw(money)
     withdraw = @current_balance -= money
-    withdrawal_date = Time.now.strftime("%d/%m/%Y")
-    @statement.push({"date": withdrawal_date, "credit": "", "debit": withdraw.to_f})
+    transaction_details(Time.now.strftime("%d/%m/%Y"),"", money)
   end
-  def statement
-    puts "date || credit || debit || balance"
-     @statement.each do |transaction|
-      return "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{@current_balance.to_f}"
+  def print_statement
+    print "date || credit || debit || balance"
+    @statement.each do |transaction|
+    print "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]} \n"
     end
   end
 end
