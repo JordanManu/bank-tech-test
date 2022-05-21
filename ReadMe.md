@@ -60,17 +60,19 @@
 
 ## Acceptance Criteria
 
-Given a client makes a deposit of 1000 on 10-01-2023
-And a deposit of 2000 on 13-01-2023
-And a withdrawal of 500 on 14-01-2023
-When she prints her bank statement
-Then she would see
+**Given** a client makes a deposit of 1000 on 10-01-2023  
+**And** a deposit of 2000 on 13-01-2023  
+**And** a withdrawal of 500 on 14-01-2023  
+**When** she prints her bank statement  
+**Then** she would see
+
 ```
 date || credit || debit || balance
 14/01/2023 || || 500.00 || 2500.00
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
+
 ## Screenshots of the program
 
 ![Screenshot](https://imgur.com/foVKiAf.png)
@@ -82,11 +84,12 @@ date || credit || debit || balance
 * To run the tests using Rspec, you can run the command ```rspec``` in your terminal
 * To check the quality of the code, use the command ```rubocop``` to run rubocop
 * To use the program, start by opening irb in your terminal
-* To load the program into irb use the command ```require "./lib/bank_account.rb"
+* To load the program into irb use the command ```require "./lib/bank_account.rb"```
 * From there, you can create a new instance of the BankAccount class using ```bank = BankAccount.new```
 * To deposit money into the account, use the command bank.deposit(money) eg. ```bank.deposit(30)```
 * To withdraw money from the account, use the command bank.withdraw(money) eg. ```bank.withdraw(20)```
 * To view a bank statement, use the command ```bank.print_statement```
+* Happy depositing! 
 
 ## User Stories
 
