@@ -73,7 +73,7 @@ date || credit || debit || balance
 ```
 ## Screenshots of the program
 
-![Screenshot]('https://imgur.com/foVKiAf.png')
+![Screenshot](https://imgur.com/foVKiAf.png)
 
 ## How to use
 
