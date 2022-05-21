@@ -2,7 +2,7 @@
 
 class BankTest
   def initialize
-    @current_balance = 0.00
+    @current_balance = 0
     @statement = []
   end
 
@@ -12,24 +12,31 @@ class BankTest
 
   def deposit(money)
     @current_balance += money
-    transaction_details(Time.now.strftime('%d/%m/%Y'), money, '')
+    transaction_details(Time.now.strftime('%d/%m/%Y'), money, :credit)
   end
 
   def withdraw(money)
+    raise "Insufficient funds" if money > @current_balance
     @current_balance -= money
-    transaction_details(Time.now.strftime('%d/%m/%Y'), '', money)
+    transaction_details(Time.now.strftime('%d/%m/%Y'), money, :debit)
   end
 
   def print_statement
-    print 'date || credit || debit || balance'
+    print "date       ||credit || debit || balance \n"
     @statement.each do |transaction|
-      print "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]} \n"
+      if transaction.has_key?(:credit)
+        credit = format('%.2f', transaction[:credit])
+      elsif transaction.has_key?(:debit)
+        debit = format('%.2f', transaction[:debit])
+      end
+      balance = format('%.2f', transaction[:balance])
+      print "#{transaction[:date]} || #{credit} || #{debit} || #{balance} \n"
     end
   end
 
   private
 
-  def transaction_details(date, credit, debit)
-    @statement.unshift({ "date": date, "credit": credit.to_f, "debit": debit.to_f, "balance": @current_balance })
+  def transaction_details(date, money, type)
+    @statement.unshift({ "date": date, "#{type}": money, "balance": @current_balance })
   end
 end
