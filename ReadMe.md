@@ -91,6 +91,11 @@ date || credit || debit || balance
 * To view a bank statement, use the command ```bank.print_statement```
 * Happy depositing! 
 
+## My approach
+
+My approach to this challenge was to first create the user stories below from the specification given. 
+I then used a TDD approach to create simple and effective code. 
+
 ## User Stories
 
 ```
