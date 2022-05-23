@@ -30,15 +30,16 @@ describe BankAccount do
       expect(@bank.balance).to eq 6
     end
   end
+
   describe '#withdraw' do
     it 'withdraws money from the account' do
       @bank.deposit(2)
       @bank.withdraw(1)
       expect(@bank.balance).to eq 1
     end
+
     it "doesn't allow the user to withdraw more money than what they have in their account" do
       expect { @bank.withdraw(1) }.to raise_error('Insufficient funds')
     end
   end
-
 end

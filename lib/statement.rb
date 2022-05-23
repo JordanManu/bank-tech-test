@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Statement
   def print_statement(transactions)
     print "date       ||credit || debit || balance \n"
@@ -6,7 +8,6 @@ class Statement
       "#{transaction[:type] == :credit ? transaction[:amount] : ''} || "\
       "#{transaction[:type] == :debit ? transaction[:amount] : ''} || "\
       "#{transaction[:balance]} \n"
-      p transaction
     end
   end
 end

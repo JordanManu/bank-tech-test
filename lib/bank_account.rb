@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require "statement"
+
+require 'statement'
 
 class BankAccount
   def initialize(statement = Statement.new)
@@ -36,9 +37,8 @@ class BankAccount
 
   def transaction_details(amount, operation_type)
     @transactions.unshift({ "date": Time.now.strftime('%d/%m/%Y'),
-                         "type": operation_type, 
-                         "amount": format_currency(amount),
-                         "balance": format_currency(@current_balance)
-                         })
+                            "type": operation_type,
+                            "amount": format_currency(amount),
+                            "balance": format_currency(@current_balance) })
   end
 end
