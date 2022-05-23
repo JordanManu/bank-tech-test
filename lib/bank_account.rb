@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'statement'
+require_relative 'statement'
 
 class BankAccount
   def initialize(statement = Statement.new)
