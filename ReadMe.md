@@ -93,8 +93,10 @@ date || credit || debit || balance
 
 ## My approach
 
-My approach to this challenge was to first create the user stories below from the specification given. 
-I then used a TDD approach to create simple and effective code. 
+- My approach to this challenge was to first create the user stories below from the specification given. 
+- I then used a TDD approach to create simple and effective code.
+- I started by having one BankAccount class, then after that was completed and working, I separated it into two classes - BankAccount and Statement.
+- The BankAccount class is responsible for handling the transactions, and the Statement class is responsible for printing the Statement.
 
 ## User Stories
 
