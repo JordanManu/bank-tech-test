@@ -43,22 +43,22 @@ describe BankAccount do
   describe '#print_statement' do
     it 'stores the date the transaction was made' do
       @bank.deposit(2)
-      expect(@bank.print_statement).to eq [{ balance: 2.0, credit: 2.0, date: @date.to_s }]
+      expect(@bank.print_statement).to eq [{:amount=>"2.00", :balance=>"2.00", :credit=>:credit, :date=>"23/05/2022"}]
     end
 
     it 'prints the bank statement with date, credit and balance' do
       @bank.deposit(5)
-      expect(@bank.print_statement).to eq [{ balance: 5.0, credit: 5.0, date: @date.to_s }]
+      expect(@bank.print_statement).to eq [{:amount=>"5.00", :balance=>"5.00", :credit=>:credit, :date=>"23/05/2022"}]
     end
 
     it 'prints the statement with most recent transaction first' do
       @bank.deposit(15)
       @bank.withdraw(10)
-      expect(@bank.print_statement[0]).to eq({ balance: 5.00, date: @date, debit: 10.00 })
+      expect(@bank.print_statement[0]).to eq({:amount=>"10.00", :balance=>"5.00", :date=>"23/05/2022", :debit=>:debit})
     end
     it 'prints the monetary values in the statement with two decimal places' do
       @bank.deposit(5)
-      expect(@bank.print_statement).to eq [{ balance: 5.00, credit: 5.00, date: @date.to_s }]
+      expect(@bank.print_statement).to eq [{:amount=>"5.00", :balance=>"5.00", :credit=>:credit, :date=>"23/05/2022"}]
     end
   end
 end
