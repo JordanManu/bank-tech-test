@@ -9,10 +9,6 @@ class BankAccount
     @transactions = []
   end
 
-  def balance
-    @current_balance
-  end
-
   def deposit(money)
     @current_balance += money
     transaction_details(money, :credit)

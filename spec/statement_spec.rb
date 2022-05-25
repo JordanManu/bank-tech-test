@@ -16,12 +16,12 @@ describe Statement do
 
   it 'stores the date the transaction was made' do
     expect(@statement.print_statement(@transactions)).to eq [{ amount: '200.00', balance: '200.00', type: :credit,
-                                                               date: '23/05/2022' }]
+                                                               date: @date }]
   end
 
   it 'prints the bank statement with date, credit and balance' do
     expect(@statement.print_statement(@transactions)).to eq [{ amount: '200.00', balance: '200.00', type: :credit,
-                                                               date: '23/05/2022' }]
+                                                               date: @date }]
   end
 
   it 'prints the statement with most recent transaction first' do
@@ -34,20 +34,20 @@ describe Statement do
       }
     )
     expect(@statement.print_statement(@transactions)).to eq [
-      { amount: '300.00', balance: '500.00', type: :credit, date: '23/05/2022' },
-      { amount: '200.00', balance: '200.00', date: '23/05/2022', type: :credit }
+      { amount: '300.00', balance: '500.00', type: :credit, date: @date },
+      { amount: '200.00', balance: '200.00', date: @date, type: :credit }
     ]
   end
 
   it 'prints the monetary values in the statement with two decimal places' do
     expect(@statement.print_statement(@transactions)).to eq [{ amount: '200.00', balance: '200.00', type: :credit,
-                                                               date: '23/05/2022' }]
+                                                               date: @date }]
   end
 
   it 'prints the statement in a nice format' do
     expect { @statement.print_statement(@transactions) }.to output(
       "date       ||credit || debit || balance \n"\
-      "#{@date} || 200.00 ||  || 200.00 \n"
+      "#{@date} ||  200.00 ||   ||  200.00 \n"
     ).to_stdout
   end
 
@@ -62,8 +62,8 @@ describe Statement do
     )
     expect { @statement.print_statement(@transactions) }.to output(
       "date       ||credit || debit || balance \n"\
-      "#{@date} ||  || 100.00 || 100.00 \n"\
-      "#{@date} || 200.00 ||  || 200.00 \n"
+      "#{@date} ||   ||  100.00 ||  100.00 \n"\
+      "#{@date} ||  200.00 ||   ||  200.00 \n"\
     ).to_stdout
   end
 end
