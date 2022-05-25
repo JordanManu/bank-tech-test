@@ -75,7 +75,7 @@ date || credit || debit || balance
 
 ## Screenshots of the program
 
-![Screenshot](https://imgur.com/ouwyBi3.png)
+![Screenshot](https://imgur.com/dqCwFGU.png)
 
 ## How to use
 
