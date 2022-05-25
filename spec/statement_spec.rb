@@ -47,7 +47,7 @@ describe Statement do
   it 'prints the statement in a nice format' do
     expect { statement.print_statement(@transactions) }.to output(
       "date       ||credit || debit || balance \n"\
-      "#{@date} || 200.00 ||    || 200.00 \n"
+      "#{@date} || 200.00 || || 200.00 \n"
     ).to_stdout
   end
 
@@ -62,8 +62,8 @@ describe Statement do
     )
     expect { statement.print_statement(@transactions) }.to output(
       "date       ||credit || debit || balance \n"\
-      "#{@date} ||    || 100.00 || 100.00 \n"\
-      "#{@date} || 200.00 ||    || 200.00 \n"\
+      "#{@date} || || 100.00 || 100.00 \n"\
+      "#{@date} || 200.00 || || 200.00 \n"\
     ).to_stdout
   end
 end
