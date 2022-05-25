@@ -16,12 +16,12 @@ describe Statement do
 
   it 'stores the date the transaction was made' do
     expect(statement.print_statement(@transactions)).to eq [{ amount: '200.00', balance: '200.00', type: :credit,
-                                                               date: @date }]
+                                                              date: @date }]
   end
 
   it 'prints the bank statement with date, credit and balance' do
     expect(statement.print_statement(@transactions)).to eq [{ amount: '200.00', balance: '200.00', type: :credit,
-                                                               date: @date }]
+                                                              date: @date }]
   end
 
   it 'prints the statement with most recent transaction first' do
@@ -41,7 +41,7 @@ describe Statement do
 
   it 'prints the monetary values in the statement with two decimal places' do
     expect(statement.print_statement(@transactions)).to eq [{ amount: '200.00', balance: '200.00', type: :credit,
-                                                               date: @date }]
+                                                              date: @date }]
   end
 
   it 'prints the statement in a nice format' do
