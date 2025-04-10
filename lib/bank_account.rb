@@ -5,7 +5,7 @@ require_relative 'statement'
 class BankAccount
   def initialize(statement = Statement.new)
     @statement = statement
-    @current_balance = 10000
+    @current_balance = 2000
     @transactions = []
   end
 
